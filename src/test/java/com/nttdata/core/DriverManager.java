@@ -8,6 +8,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+
 public class DriverManager {
     private static WebDriver driver;
     private static Scenario scenario;
@@ -15,16 +16,15 @@ public class DriverManager {
     public static WebDriver getDriver(){
         return driver;
     }
-
     @Before(order = 0)
-    public void setUp(){
-        //Se ejecutará Automáticamente
+    public void setUp() {
         System.setProperty("webdriver.http.factory", "jdk-http-client");
         System.setProperty("webdriver.chrome.driver", "drivers\\chromedriver.exe");
 
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
+
     @Before(order = 1)
     public void setScenario(Scenario scenario){
         this.scenario = scenario;
